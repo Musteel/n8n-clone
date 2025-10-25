@@ -20,10 +20,10 @@ const registerSchema = z.object({
     confirmPassword: z.string(),
 })
 
-.refine((data) => data.password === data.confirmPassword, {
-    message: "Passwords do not match",
-    path: ["confirmPassword"],
-});
+    .refine((data) => data.password === data.confirmPassword, {
+        message: "Passwords do not match",
+        path: ["confirmPassword"],
+    });
 
 type registerFormValues = z.infer<typeof registerSchema>;
 
@@ -51,11 +51,11 @@ export function RegisterForm() {
                 },
                 onError: (ctx) => {
                     toast.error(ctx.error.message);
-            }
+                }
 
 
-        })
-};
+            })
+    };
     const isPending = form.formState.isSubmitting;
 
     return (
@@ -74,10 +74,24 @@ export function RegisterForm() {
                         <form onSubmit={form.handleSubmit(onSubmit)}>
                             <div className="grid gap-6">
                                 <div className="flex flex-col gap-4">
-                                    <Button variant= "outline" className="w-full" type="button" disabled={isPending}>
+                                    <Button variant="outline" className="w-full" type="button" disabled={isPending}>
+                                        <Image
+                                            src="/logos/github.svg"
+                                            alt="Github logo"
+                                            width={18}
+                                            height={18}
+                                            className="mr-2"
+                                        />
                                         Continue with Github
                                     </Button>
-                                    <Button variant= "outline" className="w-full" type="button" disabled={isPending}>
+                                    <Button variant="outline" className="w-full" type="button" disabled={isPending}>
+                                        <Image
+                                            src="/logos/google.svg"
+                                            alt="Google logo"
+                                            width={18}
+                                            height={18}
+                                            className="mr-2"
+                                        />
                                         Continue with Google
                                     </Button>
                                 </div>
@@ -130,11 +144,11 @@ export function RegisterForm() {
                                             </FormItem>
                                         )}
                                     />
-                                    <Button type="submit" className= "w-full" disabled={isPending}>
+                                    <Button type="submit" className="w-full" disabled={isPending}>
                                         Sign up
                                     </Button>
                                 </div>
-                                <div className = "text-center text sm">
+                                <div className="text-center text sm">
                                     Already have an account?{' '}
                                     <Link href="/login" className="underline underline-offset-4">
                                         Login
