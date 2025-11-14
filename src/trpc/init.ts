@@ -29,7 +29,7 @@ export const protectedProcedure = baseProcedure.use(async ({ ctx, next }) => {
   });
 
   if (!session) {
-    throw new TRPCError({ code: 'UNAUTHORIZED', message: 'User is not authenticated' });
+    throw new TRPCError({ code: 'UNAUTHORIZED', message: 'Authentication required' });
   }
 
   return next({
@@ -46,7 +46,7 @@ export const premiumProcedure = protectedProcedure.use(async ({ ctx, next }) => 
   });
 
   if (!customer?.activeSubscriptions || customer.activeSubscriptions.length === 0) {
-    throw new TRPCError({ code: 'FORBIDDEN', message: 'User does not have an active subscription' });
+    throw new TRPCError({ code: 'FORBIDDEN', message: 'Active subscription required' });
   }
   return next({
     ctx: {
