@@ -26,7 +26,8 @@ import {
 import { url } from "inspector";
 import { authClient } from "@/lib/auth-client";
 import { on } from "events";
-
+import { auth } from "@/lib/auth";
+import { userHasActiveSubscription } from "@/features/subscriptions/hooks/use-subscription";
 const menuItems = [
     {
         title: "Workflows",
@@ -54,6 +55,7 @@ export const AppSidebar = () => {
 
     const pathname = usePathname();
     const router = useRouter();
+    const { hasActiveSubscription, isLoading } = userHasActiveSubscription()
 
     return (
         <Sidebar collapsible="icon">
@@ -96,20 +98,22 @@ export const AppSidebar = () => {
             </SidebarContent>
             <SidebarFooter>
                 <SidebarMenu>
+                    {!isLoading && !hasActiveSubscription && (
                     <SidebarMenuItem>
                         <SidebarMenuButton
                             tooltip="Upgrade to Pro"
                             className="gap-x-4 h-10 px-4"
-                            onClick={() => { }}>
+                            onClick={() => authClient.checkout({slug: "Nodebase-Pro"})}>
                             <StarIcon className="size-4" />
                             <span>Upgrade to Pro</span>
                         </SidebarMenuButton>
                     </SidebarMenuItem>
+                    )}
                     <SidebarMenuItem>
                         <SidebarMenuButton
                             tooltip="Billing & Pricing"
                             className="gap-x-4 h-10 px-4"
-                            onClick={() => { }}>
+                            onClick={() => authClient.customer.portal()}>
                             <CreditCardIcon className="size-4" />
                             <span>Billing & Pricing</span>
                         </SidebarMenuButton>
