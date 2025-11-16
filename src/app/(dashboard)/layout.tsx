@@ -3,11 +3,11 @@ import { AppSidebar } from '@/components/app-sidebar';
 
 const Layout = ({ children }: { children: React.ReactNode }) => {
     return <SidebarProvider>
-                <AppSidebar />
-                <SidebarInset>
-                    {children}
-                </SidebarInset>
-            </SidebarProvider>;
+        <AppSidebar />
+        <SidebarInset>
+            {children}
+        </SidebarInset>
+    </SidebarProvider>;
 };
 
 export default Layout;
