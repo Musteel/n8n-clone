@@ -201,7 +201,7 @@ export const EmptyView = ({
 interface EntityListProps<T> {
     items: T[];
     renderItem: (item: T, index: number) => React.ReactNode;
-    getKey?: (items: T, index: number) => string | number;
+    getKey?: (item: T, index: number) => string | number;
     emptyView?: React.ReactNode;
     className?: string;
 };
@@ -213,7 +213,7 @@ export function EntityList<T>({
     emptyView,
     className,
 }: EntityListProps<T>) {
-    if (items.length == 0 && emptyView) {
+    if (items.length === 0 && emptyView) {
         return (
             <div className="flex-1 flex justify-center items-center">
                 <div className="max-w-sm mx-auto">{emptyView}</div>
@@ -279,7 +279,7 @@ export const EntityItem = ({
                     className,
                 )}
             >
-                <CardContent className="flex flex.row items-center justify-between p-0">
+                <CardContent className="flex flex-row items-center justify-between p-0">
                     <div className="flex items-center gap-3">
                         {image}
                         <div>
