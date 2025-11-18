@@ -15,9 +15,6 @@ export type PlaceholderNodeProps = Partial<NodeProps> & {
 };
 
 export function PlaceholderNode({ children, onClick }: PlaceholderNodeProps) {
-
-
-
   return (
     <BaseNode
       className="bg-card w-auto h-auto border-dashed border-gray-400 p-4 text-center text-gray-400 shadow-none cursor-pointer hover:border-gray-500 hover:bg-gray-50"
