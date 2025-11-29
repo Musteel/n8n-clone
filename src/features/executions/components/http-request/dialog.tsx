@@ -35,11 +35,13 @@ import { Button } from "@/components/ui/button";
 const formSchema = z.object({
     variableName: z
         .string()
-        .min(1, {message: "Variable name is required."})
+        .min(1, { message: "Variable name is required." })
         .regex(/^[A-Za-z_$][A-Za-z0-9_$]*$/, {
             message: "Variable name must start with a letter or underscore and contain only letters, numbers and underscores."
         }),
-    endpoint: z.url({ message: "Please enter a valid URL." }),
+    endpoint: z
+        .string()
+        .min(1, { message: "Please enter a valid URL." }),
     method: z.enum(["GET", "POST", "PUT", "PATCH", "DELETE"]),
     body: z
         .string()
@@ -85,7 +87,7 @@ export const HttpRequestDialog = ({
         }
     }, [open, defaultValues])
 
-    const watchVariableName =form.watch("variableName") || "myApiCall";
+    const watchVariableName = form.watch("variableName") || "myApiCall";
     const watchMethod = form.watch("method");
     const showBodyField = ["POST", "PUT", "PATCH"].includes(watchMethod);
 
