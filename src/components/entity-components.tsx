@@ -26,7 +26,7 @@ export const EntityHeader = ({ title, description, onNewClick, newButtonHref, ne
                 <h1 className="text-lg md:text-xl font-semibold">{title}</h1>
                 {description && <p className="text-xs md:text-sm text-muted-foreground">{description}</p>}
             </div>
-            {(onNewClick || newButtonHref) && (
+            {(onNewClick && !newButtonHref) && (
                 <Button disabled={isCreating || disabled}
                     size="sm" onClick={onNewClick}>
                     <PlusIcon className="size-4" />

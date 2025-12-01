@@ -19,6 +19,7 @@ model User {
   workflows     Workflow[]
   accounts      Account[]
   sessions      Session[]
+  credentials   Credential[]
 
   @@map("user")
 }
@@ -67,6 +68,26 @@ model Verification {
   @@map("verification")
 }
 
+model Credential {
+  id          String       @id @default(cuid())
+  name        String
+  value       String
+  type        CredentialType
+  createdAt   DateTime     @default(now())
+  updatedAt   DateTime     @updatedAt
+
+  userId String
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  Node Node[]
+}
+
+enum CredentialType {
+  GEMINI
+  OPENAI
+  ANTHROPIC
+}
+
 model Workflow {
   id          String       @id @default(cuid())
   name        String
@@ -90,6 +111,8 @@ model Node {
   outputConnections Connection[] @relation("FromNode")
   inputConnections  Connection[] @relation("ToNode")
   workflow          Workflow     @relation(fields: [workflowId], references: [id], onDelete: Cascade)
+  credentialId      String?
+  credential        Credential?  @relation(fields: [credentialId], references: [id])
 }
 
 model Connection {
