@@ -1,4 +1,5 @@
 import { InitialNode } from "@/components/initial-node";
+import { DiscordNode } from "@/features/executions/components/discord/node";
 import { GeminiNode } from "@/features/executions/components/gemini/node";
 import { HttpRequestNode } from "@/features/executions/components/http-request/node";
 import { GoogleFormTriggerNode } from "@/features/triggers/components/google-form-trigger/node";
@@ -14,6 +15,7 @@ export const nodeComponents = {
     [NodeType.GOOGLE_FORM_TRIGGER]: GoogleFormTriggerNode,
     [NodeType.STRIPE_TRIGGER]: StripeTriggerNode,
     [NodeType.GEMINI]: GeminiNode,
+    [NodeType.DISCORD]: DiscordNode,
 } as const satisfies NodeTypes;
 
 export type RegisteredNoteType = keyof typeof nodeComponents;

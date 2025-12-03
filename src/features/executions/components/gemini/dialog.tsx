@@ -103,7 +103,7 @@ export const GeminiDialog = ({
         }
     }, [open, defaultValues, form])
 
-    const watchVariableName = form.watch("variableName") || "myApiCall";
+    const watchVariableName = form.watch("variableName") || "myGemini";
 
     const handleSubmit = (values: z.infer<typeof formSchema>) => {
         onSubmit(values);
@@ -165,13 +165,13 @@ export const GeminiDialog = ({
                                     <FormLabel>Variable Name</FormLabel>
                                     <FormControl>
                                         <Input
-                                            placeholder="myApiCall"
+                                            placeholder="myGemini"
                                             {...field}
                                         />
                                     </FormControl>
                                     <FormDescription>
                                         Use this name to reference the result in other nodes: {" "}
-                                        {`{{${watchVariableName}.httpResponse.data}}`}.
+                                        {`{{${watchVariableName}.data}}`}.
                                     </FormDescription>
                                     <FormMessage />
                                 </FormItem>
