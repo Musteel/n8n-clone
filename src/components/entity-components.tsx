@@ -10,7 +10,7 @@ import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigge
 type EntityHeaderProps = {
     title: string;
     description?: string;
-    newButtonLabel: string;
+    newButtonLabel?: string;
     disabled?: boolean;
     isCreating?: boolean;
 } & (
@@ -48,7 +48,7 @@ export const EntityHeader = ({ title, description, onNewClick, newButtonHref, ne
 
 type EntityContainerProps = {
     header: React.ReactNode;
-    search: React.ReactNode;
+    search?: React.ReactNode;
     pagination: React.ReactNode;
     children: React.ReactNode;
 };
