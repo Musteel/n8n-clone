@@ -12,8 +12,16 @@ export const executionsRouter = createTRPCRouter({
             return prisma.execution.findUniqueOrThrow({
                 where: {
                     id: input.id,
-                    workflow: {userId: ctx.auth.user.id},
+                    workflow: { userId: ctx.auth.user.id },
                 },
+                include: {
+                    workflow: {
+                        select: {
+                            id: true,
+                            name: true,
+                        }
+                    }
+                }
             });
 
         }),
@@ -36,7 +44,7 @@ export const executionsRouter = createTRPCRouter({
                     skip: (page - 1) * pageSize,
                     take: pageSize,
                     where: {
-                        workflow: {userId: ctx.auth.user.id},
+                        workflow: { userId: ctx.auth.user.id },
                     },
                     orderBy: {
                         startedAt: 'desc',
@@ -52,7 +60,7 @@ export const executionsRouter = createTRPCRouter({
                 }),
                 prisma.execution.count({
                     where: {
-                        workflow: {userId: ctx.auth.user.id},
+                        workflow: { userId: ctx.auth.user.id },
                     },
                 }),
             ]);
