@@ -31,6 +31,34 @@ export function LoginForm() {
             password: "",
         },
     });
+
+
+    const signInGithub = async () => {
+        await authClient.signIn.social({
+            provider: "github"
+        }, {
+            onSuccess: () => {
+                router.push("/");
+            },
+            onError: () => {
+                toast.error("Something went wrong");
+            },
+        });
+    };
+
+    const signInGoogle = async () => {
+        await authClient.signIn.social({
+            provider: "google"
+        }, {
+            onSuccess: () => {
+                router.push("/");
+            },
+            onError: () => {
+                toast.error("Something went wrong");
+            },
+        });
+    };
+
     const onSubmit = async (values: LoginFormValues) => {
         await authClient.signIn.email(
             {
@@ -44,9 +72,9 @@ export function LoginForm() {
                 },
                 onError: (ctx) => {
                     toast.error(ctx.error.message);
-            },
-        });
-};
+                },
+            });
+    };
     const isPending = form.formState.isSubmitting;
 
     return (
@@ -65,7 +93,7 @@ export function LoginForm() {
                         <form onSubmit={form.handleSubmit(onSubmit)}>
                             <div className="grid gap-6">
                                 <div className="flex flex-col gap-4">
-                                    <Button variant= "outline" className="w-full" type="button" disabled={isPending}>
+                                    <Button onClick={signInGithub} variant="outline" className="w-full" type="button" disabled={isPending}>
                                         <Image
                                             src="/logos/github.svg"
                                             alt="Github logo"
@@ -75,7 +103,7 @@ export function LoginForm() {
                                         />
                                         Continue with Github
                                     </Button>
-                                    <Button variant= "outline" className="w-full" type="button" disabled={isPending}>
+                                    <Button onClick={signInGoogle} variant="outline" className="w-full" type="button" disabled={isPending}>
                                         <Image
                                             src="/logos/google.svg"
                                             alt="Google logo"
@@ -119,11 +147,11 @@ export function LoginForm() {
                                             </FormItem>
                                         )}
                                     />
-                                    <Button type="submit" className= "w-full" disabled={isPending}>
+                                    <Button type="submit" className="w-full" disabled={isPending}>
                                         Login
                                     </Button>
                                 </div>
-                                <div className = "text-center text sm">
+                                <div className="text-center text sm">
                                     Don't have an account?{' '}
                                     <Link href="/signup" className="underline underline-offset-4">
                                         Sign up
