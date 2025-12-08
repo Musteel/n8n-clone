@@ -3,7 +3,7 @@
 A workflow automation platform inspired by n8n and Zapier, built as a learning project to explore modern web development tools and practices.
 
 ![Project Status](https://img.shields.io/badge/status-in%20progress-yellow)
-![Next.js](https://img.shields.io/badge/Next.js-15.5.6-black)
+![Next.js](https://img.shields.io/badge/Next.js-16.0.7-black)
 ![TypeScript](https://img.shields.io/badge/TypeScript-5-blue)
 ![Prisma](https://img.shields.io/badge/Prisma-6.17.1-green)
 
