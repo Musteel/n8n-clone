@@ -48,9 +48,20 @@ A workflow automation platform inspired by n8n and Zapier, built as a learning p
    Create a `.env.local` file and add your configuration:
    ```env
    DATABASE_URL="your-database-url"
-   INNGEST_EVENT_KEY="your-inngest-key"
+   BETTER_AUTH_SECRET="your-key"
+   BETTER_AUTH_URL="your-key"
+   GITHUB_CLIENT_ID="your-key"
+   GITHUB_CLIENT_SECRET="your-key"
+   GOOGLE_CLIENT_ID="your-key"
+   GOGGLE_CLIENT_SECRET="your-key"
+   GOOGLE_GENERATIVE_AI_API_KEY="your-key"
    POLAR_ACCESS_TOKEN="your-polar-token"
-   SENTRY_DSN="your-sentry-dsn"
+   POLAR_SUCCESS_URL="your-polar-token"
+   SENTRY_AUTH_TOKEN="your-key"
+   NEXT_PUBLIC_APP_URL="your-key"
+   NGROK_URL="your-key"
+   ENCRYPTION_KEY="your-key"
+   BETTER_AUTH_SECRET="your-key"
    ```
 
 4. **Set up the database**
