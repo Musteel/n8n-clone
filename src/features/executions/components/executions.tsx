@@ -101,7 +101,12 @@ export const ExecutionsItem = ({
     };
 }) => {
 
-    const duration = data.completedAt ? Math.round((new Date(data.completedAt).getTime()) - new Date(data.startedAt).getTime() / 1000,) : null;
+    const duration = data.completedAt
+        ? Math.round(
+            (new Date(data.completedAt).getTime() - new Date
+            (data.startedAt).getTime()) / 1000,
+            )
+            : null;
 
     const subtitle = (
         <>
