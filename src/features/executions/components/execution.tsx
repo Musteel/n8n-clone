@@ -31,7 +31,7 @@ export const ExecutionView = ({ executionId }: { executionId: string }) => {
     const { data: execution } = useSuspenseExecution(executionId);
     const [showStackTrace, setShowStackTrace] = useState(false);
 
-    const duration = execution.completedAt ? Math.round((new Date(execution.completedAt).getTime()) - new Date(execution.startedAt).getTime() / 1000,) : null;
+    const duration = execution.completedAt ? Math.round((new Date(execution.completedAt).getTime() - new Date(execution.startedAt).getTime()) / 1000,) : null;
 
     return (
         <Card className="shadow-none ">
