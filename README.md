@@ -20,8 +20,8 @@ A workflow automation platform inspired by n8n and Zapier, built as a learning p
 
 ## 🛠️ Tech Stack
 
-- **Frontend**: Next.js 15, React 19, TypeScript, Tailwind CSS
-- **UI Components**: Radix UI, Lucide Icons
+- **Frontend**: Next.js 16, React 19, TypeScript, Tailwind CSS
+- **UI Components**: Radix UI, Lucide Icons, Shadcn UI
 - **State Management**: Jotai, TanStack Query
 - **Backend**: Next.js API Routes, tRPC
 - **Database**: Prisma with PostgreSQL
