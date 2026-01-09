@@ -7,7 +7,7 @@ A workflow automation platform inspired by n8n and Zapier, built as a learning p
 ![TypeScript](https://img.shields.io/badge/TypeScript-5-blue)
 ![Prisma](https://img.shields.io/badge/Prisma-6.17.1-green)
 
-## 🚀 Features
+##  Features
 
 - **Visual Workflow Editor**: Drag-and-drop interface for building automation workflows using React Flow
 - **Node-Based Architecture**: Modular nodes for triggers, actions, and integrations
@@ -18,7 +18,7 @@ A workflow automation platform inspired by n8n and Zapier, built as a learning p
 - **Database**: PostgreSQL with Prisma ORM
 - **Real-time Updates**: Live workflow execution updates
 
-## 🛠️ Tech Stack
+##  Tech Stack
 
 - **Frontend**: Next.js 16, React 19, TypeScript, Tailwind CSS
 - **UI Components**: Radix UI, Lucide Icons, Shadcn UI
@@ -31,7 +31,7 @@ A workflow automation platform inspired by n8n and Zapier, built as a learning p
 - **Monitoring**: Sentry
 - **Code Quality**: Biome
 
-## 📦 Installation
+##  Installation
 
 1. **Clone the repository**
    ```bash
@@ -79,16 +79,17 @@ A workflow automation platform inspired by n8n and Zapier, built as a learning p
    npm run dev:all
    ```
 
-## 🏃‍♂️ Usage
+##  Usage
 
 1. Open [http://localhost:3000](http://localhost:3000) in your browser
 2. Sign up or log in
-3. Create a new workflow
-4. Drag nodes from the sidebar to build your automation
-5. Connect nodes and configure their properties
-6. Save and execute your workflow
+3. Complete upgrade process (can use random name and number if it's in sandbox mode)
+4. Create a new workflow
+5. Drag nodes from the sidebar to build your automation
+6. Connect nodes and configure their properties
+7. Save and execute your workflow
 
-## 🏗️ Project Structure
+##  Project Structure
 
 ```
 n8n-clone/
@@ -108,10 +109,10 @@ n8n-clone/
 ```
 
 
-## 📄 License
+##  License
 
 This project is private and for educational purposes only.
 
-## ⚠️ Disclaimer
+##  Disclaimer
 
 This project is a clone built for learning purposes. It is not affiliated with n8n or Zapier.
